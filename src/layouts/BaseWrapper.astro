@@ -1,0 +1,47 @@
+---
+    import '@fontsource/overpass'
+
+    import Head from '@components/Head.astro';
+    import Header from '@components/Header.astro';
+	import Footer from "@components/Footer.astro";
+
+    import { SITE_DESCRIPTION, SITE_TITLE } from 'consts';
+---
+
+<html lang="en">
+    <head>
+        <Head title={ SITE_TITLE } description={ SITE_DESCRIPTION } />
+    </head>
+  <body>
+	<slot />
+  </body>
+</html>
+
+<script>
+	const themeToggle = document.querySelector(
+	  	'.theme-switch input[type="checkbox"]'
+	) as HTMLInputElement;
+
+	const currentTheme = localStorage.getItem("theme");
+
+	if (currentTheme) {
+	  	document.documentElement.setAttribute("data-theme", currentTheme);
+
+	  	if (currentTheme === "dark") {
+			themeToggle!.checked = true;
+	  	}
+	}
+
+	function switchTheme(e: any) {
+	  	if (e.target.checked) {
+			document.documentElement.setAttribute("data-theme", "dark");
+			localStorage.setItem("theme", "dark");
+	  	} else {
+			document.documentElement.setAttribute("data-theme", "light");
+			localStorage.setItem("theme", "light");
+	  	}
+	}
+
+	themeToggle!.addEventListener("change", switchTheme, false);
+
+</script>

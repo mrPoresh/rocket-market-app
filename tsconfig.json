@@ -1,0 +1,19 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "baseUrl": "src",
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "paths": {
+      "@public/*": ["public/*"],
+      "@components/*": ["components/*"],
+      "@layouts/*": ["layouts/*"],
+      "@pages/*": ["pages/*"],
+      "@styles/*": ["styles/*"],
+      "@utils/*": ["utils/*"]
+    }
+  }
+}
