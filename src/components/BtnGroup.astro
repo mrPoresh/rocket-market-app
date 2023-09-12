@@ -5,23 +5,30 @@
 
     interface Props {
         direction: string,
-        btnsData: {
-            className: string,
+        buttonsGroup: {
+            id: string,
+            buttonType: string,
             size: string,
             style: string,
-            title: string,
-            titleStyle: string,
+            title?: string,
+            titleStyle?: string,
         }[]
     }
 
-    const { btnsData } = Astro.props
+    const {buttonsGroup, direction} = Astro.props
 
 ---
 
-<div class="flex flex-row items-center">
+<div class=`btn-container ${direction}`>
     {
-        btnsData.map((button) => (
-            <Button className={button.className} size={button.size} style={button.style} title={button.title} titleStyle={button.titleStyle} />
+        buttonsGroup.map((button) => (
+            <Button id={button.id} buttonType={button.buttonType} size={button.size} style={button.style} title={button.title} titleStyle={button.titleStyle} />
         ))
     }
 </div>
+
+<style>
+    .btn-container {
+        @apply flex items-center gap-4 p-4 rounded-xl border-4 border-skin-accent
+    }
+</style>

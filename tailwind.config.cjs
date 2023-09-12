@@ -15,7 +15,8 @@ function withOpacity(variableName) {
 				xs: "0px",
 				sm: "600px",
 				md: "800px",
-				lg: "1200px",
+				lg: "1280px",
+				xl: "1680px",
 			},
 			textColor: {
 				skin: {
@@ -56,5 +57,7 @@ function withOpacity(variableName) {
 				'h7': '1rem'
 			},
 		},
-	plugins: [require("@tailwindcss/typography")],
+	plugins: [
+		require("@tailwindcss/typography"),
+	],
 };

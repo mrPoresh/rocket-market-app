@@ -1,22 +1,32 @@
 ---
 
+    import { ButtonType } from '@types'
+
     interface Props {
-        className: string,
+        id: string,
+        buttonType: string,
         size: string,
         style: string,
-        title: string,
-        titleStyle: string,
+        title?: string,
+        titleStyle?: string,
     }
 
-    const { className, size, style, title, titleStyle } = Astro.props
+    const { id, buttonType, size, style, title, titleStyle } = Astro.props
 
 ---
 
-
-<button class={`${className} ${size} ${style}`}>
-    <span class={`${titleStyle}`}>
-        { title }
-    </span>
+<button class={`${id} ${size} ${style}`}>
+    {
+        buttonType === ButtonType.Icon ? (
+            <span class="flex items-center justify-center">
+                <slot />    
+            </span>
+        ) : (
+            <span class={`${titleStyle}`}>
+                { title }
+            </span>
+        )
+    }
 </button>
 
 <style>
@@ -37,16 +47,20 @@
         @apply text-skin-white bg-skin-warn rounded-xl border-4 border-skin-warn hover:bg-skin-white hover:text-skin-warn focus:ring-4 focus:ring-white
     }
 
+    .btn-icon {
+        @apply bg-skin-white rounded-xl focus:ring-4 focus:ring-yellow-300
+    }
+
     .btn-title-sm {
-        @apply w-full h-full relative px-5 py-2.5 lg:text-h5 md:text-h5 sm:text-h6 xs:text-h6 font-normal uppercase
+        @apply relative p-2.5 lg:text-h5 md:text-h5 sm:text-h6 xs:text-h6 font-normal uppercase
     }
 
     .btn-title-md {
-        @apply relative px-5 py-2.5 lg:text-h4 md:text-h4 sm:text-h5 xs:text-h5 font-semibold uppercase
+        @apply relative p-2.5 lg:text-h4 md:text-h4 sm:text-h5 xs:text-h5 font-semibold uppercase
     }
 
     .btn-title-lg {
-        @apply relative px-5 py-2.5 lg:text-h3 md:text-h3 sm:text-h4 xs:text-h4 font-semibold uppercase
+        @apply relative p-2.5 lg:text-h3 md:text-h3 sm:text-h4 xs:text-h4 font-semibold uppercase
     }
 
     .btn-sm {
@@ -60,5 +74,9 @@
 	.btn-lg {
         @apply lg:w-64 lg:h-20 md:w-56 md:h-20 sm:w-52 sm:h-16 xs:w-44 xs:h-16;
 	}
+
+    .btn-icon-sm {
+        @apply w-12 h-12;
+    }
     
 </style>
