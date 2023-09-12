@@ -1,0 +1,82 @@
+---
+
+
+
+
+---
+
+<div class="drawer-container">
+    <div class="drawer mt-46">
+        <button class="mt-20" id="closeDrawerBtn">Close Drawer</button>
+        <p>Hello From Drawer</p>
+    </div>
+    <div class="backdrop"></div>
+</div>
+
+<script>
+    const leftValues = {
+        xs: screen.width.toString(),
+        sm: screen.width.toString(),
+        md: screen.width.toString(),
+        lg: screen.width.toString(),
+        xl: screen.width.toString(),
+    };
+
+    //const openDrawerBtn = document.getElementById('openDrawerBtn');
+    const openDrawerBtn = document.querySelector('button.drawer-menu') as HTMLElement;
+    const closeDrawerBtn = document.getElementById('closeDrawerBtn') as HTMLElement;
+    const drawer = document.querySelector('.drawer') as HTMLElement;
+    const backdrop = document.querySelector('.backdrop') as HTMLElement;
+
+    openDrawerBtn!.addEventListener('click', () => {
+        drawer!.style.left = '0';
+        backdrop!.style.width = '100%';
+        backdrop!.style.pointerEvents = 'auto'; // Enable pointer events for the backdrop
+    });
+
+    closeDrawerBtn!.addEventListener('click', () => {
+        const screen = window.innerWidth < 640 ? 'xs' :
+            window.innerWidth < 768 ? 'sm' :
+            window.innerWidth < 1024 ? 'md' :
+            window.innerWidth < 1280 ? 'lg' : 'xl';
+        const leftValue = `-${leftValues[screen]}px`
+
+        drawer.style.left = leftValue;
+        backdrop.style.width = '0';
+        backdrop.style.pointerEvents = 'none'; // Disable pointer events for the backdrop
+    });
+
+    backdrop!.addEventListener('click', () => {
+        closeDrawerBtn.click(); // Close the drawer when the backdrop is clicked
+    });
+</script>
+
+<style>
+
+    .drawer-container {
+        @apply absolute overflow-hidden
+    }
+
+    .drawer {
+        @apply fixed
+        h-full xs:w-full sm:w-full md:w-1/2 lg:w-1/4 xl:w-1/4
+        xs:-left-full sm:-left-full md:-left-1/2 lg:-left-1/4 xl:left-1/4
+        bg-skin-default transition-transform duration-300 ease-in-out
+        z-20
+    }
+
+    .backdrop {
+        @apply fixed start-0 w-0 h-full
+    }
+
+    .drawer {
+        transition: left 0.3s ease;
+    }
+
+    .backdrop {
+        background-color: rgba(0, 0, 0, 0.5);
+        transition: width 0.3s ease;
+        pointer-events: none;
+    }
+
+</style>

@@ -1,16 +1,19 @@
 ---
+
 	import BaseWrapper from '@layouts/BaseWrapper.astro'
 	import Header from '@components/Header.astro';
 	import Footer from '@components/Footer.astro';
 	import Intro from '@components/Intro.astro';
+	import LeftDrawer from '@components/LeftDrawer.astro';
+
 ---
 
 <BaseWrapper>
 	<Header />
 	
 	<main>
+		<LeftDrawer />
 		<Intro />	
-	<!-- if exist up -->
 	</main>
 
 	<Footer />

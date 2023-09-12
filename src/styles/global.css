@@ -38,7 +38,7 @@
 	}
 
 	header {
-		@apply fixed w-full top-0 left-0 z-20 bg-skin-accent
+		@apply fixed w-full top-0 left-0 z-50 bg-skin-accent
 	}
 
 	main {
