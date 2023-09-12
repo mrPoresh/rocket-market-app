@@ -11,10 +11,19 @@ function withOpacity(variableName) {
   	module.exports = {
 		content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
 		theme: {
+			screens: {
+				xs: "0px",
+				sm: "600px",
+				md: "800px",
+				lg: "1200px",
+			},
 			textColor: {
 				skin: {
 					default: withOpacity("--text-default"),
 					accent: withOpacity("--text-accent"),
+					primary: withOpacity("--text-primary"),
+					white: withOpacity("--text-white"),
+					warn: withOpacity("--text-warn")
 				},
 			},
 			backgroundColor: {
@@ -23,7 +32,15 @@ function withOpacity(variableName) {
 					accent: withOpacity("--accent"),
 					primary: withOpacity("--primary"),
 					warn: withOpacity("--warn"),
-					white: withOpacity("--white"),
+					white: withOpacity("--white")
+				},
+			},
+			borderColor: {
+				skin: {
+					default: withOpacity("--default"),
+					accent: withOpacity("--accent"),
+					primary: withOpacity("--primary"),
+					warn: withOpacity("--warn"),
 				},
 			},
 			fontFamily: {

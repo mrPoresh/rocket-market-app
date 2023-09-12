@@ -1,0 +1,64 @@
+---
+
+    interface Props {
+        className: string,
+        size: string,
+        style: string,
+        title: string,
+        titleStyle: string,
+    }
+
+    const { className, size, style, title, titleStyle } = Astro.props
+
+---
+
+
+<button class={`${className} ${size} ${style}`}>
+    <span class={`${titleStyle}`}>
+        { title }
+    </span>
+</button>
+
+<style>
+
+    .btn-accent {
+        @apply text-skin-white bg-skin-accent rounded-xl border-4 border-skin-accent hover:bg-skin-default hover:text-skin-accent focus:ring-4 focus:ring-yellow-300
+    }
+
+    .btn-default {
+        @apply text-skin-accent bg-skin-default rounded-xl border-4 border-skin-default hover:bg-skin-accent hover:text-skin-white focus:ring-4 focus:ring-blue-300
+    }
+
+    .btn-primary {
+        @apply text-skin-white bg-skin-primary rounded-xl border-4 border-skin-primary hover:bg-skin-white hover:text-skin-primary focus:ring-4 focus:ring-blue-500
+    }
+
+    .btn-warn {
+        @apply text-skin-white bg-skin-warn rounded-xl border-4 border-skin-warn hover:bg-skin-white hover:text-skin-warn focus:ring-4 focus:ring-white
+    }
+
+    .btn-title-sm {
+        @apply w-full h-full relative px-5 py-2.5 lg:text-h5 md:text-h5 sm:text-h6 xs:text-h6 font-normal uppercase
+    }
+
+    .btn-title-md {
+        @apply relative px-5 py-2.5 lg:text-h4 md:text-h4 sm:text-h5 xs:text-h5 font-semibold uppercase
+    }
+
+    .btn-title-lg {
+        @apply relative px-5 py-2.5 lg:text-h3 md:text-h3 sm:text-h4 xs:text-h4 font-semibold uppercase
+    }
+
+    .btn-sm {
+		@apply lg:w-32 lg:h-12 md:w-28 md:h-12 sm:w-28 sm:h-10 xs:w-28 xs:h-10;
+	}
+	  
+	.btn-md {
+        @apply lg:w-48 lg:h-16 md:w-44 md:h-16 sm:w-40 sm:h-12 xs:w-36 xs:h-12;
+	}
+	  
+	.btn-lg {
+        @apply lg:w-64 lg:h-20 md:w-56 md:h-20 sm:w-52 sm:h-16 xs:w-44 xs:h-16;
+	}
+    
+</style>

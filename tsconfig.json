@@ -5,15 +5,14 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "baseUrl": "src",
-    "jsx": "react-jsx",
-    "jsxImportSource": "react",
     "paths": {
       "@public/*": ["public/*"],
       "@components/*": ["components/*"],
       "@layouts/*": ["layouts/*"],
       "@pages/*": ["pages/*"],
       "@styles/*": ["styles/*"],
-      "@utils/*": ["utils/*"]
+      "@utils/*": ["utils/*"],
+      "@types": ["types.ts"],
     }
   }
 }

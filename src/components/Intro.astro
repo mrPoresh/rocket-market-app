@@ -1,0 +1,61 @@
+---
+    import { ButtonSize, ButtonType, ButtonStyle, ButtonTitleStyle } from "@types";
+
+    import Button from "./Btn.astro"; 
+
+
+    const title = 'Event';
+
+---
+
+<intro-box class="w-full flex flex-col items-start mt-24 rounded-xl border-4 border-skin-accent">
+    <div class="title-text text-skin-white m-8 p-4 bg-skin-accent rounded-xl border-4 border-skin-accent">Buttons</div>
+    <div class="btn-container">
+        <Button className={ButtonType.Event} size={ButtonSize.Large} style={ButtonStyle.Accent} title={title} titleStyle={ButtonTitleStyle.Large}/>
+        <Button className={ButtonType.Event} size={ButtonSize.Medium} style={ButtonStyle.Accent} title={title} titleStyle={ButtonTitleStyle.Medium}/>
+        <Button className={ButtonType.Event} size={ButtonSize.Small} style={ButtonStyle.Accent} title={title} titleStyle={ButtonTitleStyle.Small}/>
+    </div>
+    <div class="btn-container">
+        <Button className={ButtonType.Link} size={ButtonSize.Large} style={ButtonStyle.Primary} title={title} titleStyle={ButtonTitleStyle.Large}/>
+        <Button className={ButtonType.Link} size={ButtonSize.Medium} style={ButtonStyle.Primary} title={title} titleStyle={ButtonTitleStyle.Medium}/>
+        <Button className={ButtonType.Link} size={ButtonSize.Small} style={ButtonStyle.Primary} title={title} titleStyle={ButtonTitleStyle.Small}/>
+    </div>
+    <div class="btn-container bg-skin-accent">
+        <Button className={ButtonType.Link} size={ButtonSize.Large} style={ButtonStyle.Default} title={title} titleStyle={ButtonTitleStyle.Large}/>
+        <Button className={ButtonType.Link} size={ButtonSize.Medium} style={ButtonStyle.Default} title={title} titleStyle={ButtonTitleStyle.Medium}/>
+        <Button className={ButtonType.Link} size={ButtonSize.Small} style={ButtonStyle.Default} title={title} titleStyle={ButtonTitleStyle.Small}/>
+    </div>
+    <div class="btn-container bg-skin-accent">
+        <Button className={ButtonType.Link} size={ButtonSize.Large} style={ButtonStyle.Warn} title={title} titleStyle={ButtonTitleStyle.Large}/>
+        <Button className={ButtonType.Link} size={ButtonSize.Medium} style={ButtonStyle.Warn} title={title} titleStyle={ButtonTitleStyle.Medium}/>
+        <Button className={ButtonType.Link} size={ButtonSize.Small} style={ButtonStyle.Warn} title={title} titleStyle={ButtonTitleStyle.Small}/>
+    </div>
+</intro-box>
+
+<script>
+
+    class Intro extends HTMLElement {
+        constructor() {
+            super();
+
+            const eventButton = this.querySelector('button.btn-event');
+            const linkButton = this.querySelector('button.btn-link')
+
+            eventButton!.addEventListener('click', () => {
+                console.log('event')
+            });
+
+            linkButton!.addEventListener('click', () => {
+                console.log('link')
+            });
+        }
+    }
+
+    customElements.define('intro-box', Intro);
+</script>
+
+<style>
+    .btn-container {
+        @apply flex flex-row items-center gap-x-4 p-4 m-4 rounded-xl border-4 border-skin-accent
+    }
+</style>

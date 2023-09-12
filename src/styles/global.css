@@ -6,30 +6,35 @@
   	:root,
   	html[data-theme="light"] {
 		--default: 239, 246, 255;
-		--white: 239, 246, 255;
-
 		--accent: 37, 99, 235;
 		--primary: 250, 204, 21;
 		--warn:	220, 38, 38;
+		--white: 239, 246, 255;
 
 		--text-default: 2, 6, 23;
-		--text-accent: 239, 246, 255;
+		--text-accent: 37, 99, 235;
+		--text-primary: 250, 204, 21;
+		--text-white: 239, 246, 255;
+		--text-warn: 220, 38, 38;
+		
 	}
 
 	html[data-theme="dark"] {
 		--default: 100, 116, 139;
-		--white: 239, 246, 255;
-
 		--accent: 51, 65, 85;
 		--primary: 250, 204, 21;
 		--warn:	220, 38, 38;
+		--white: 239, 246, 255;
 
+		--text-default: 239, 246, 255;
 		--text-accent: 239, 246, 255;
-		--text-accent: 239, 246, 255;
+		--text-primary: 250, 204, 21;
+		--text-white: 239, 246, 255;
+		--text-warn: 220, 38, 38;
 	}
 
 	body {
-		@apply w-full h-screen bg-skin-default font-mono text-skin-default;
+		@apply min-h-screen flex flex-col items-center justify-center font-mono text-skin-default bg-skin-default	/* re text */
 	}
 
 	header {
@@ -37,19 +42,19 @@
 	}
 
 	main {
-		@apply w-full h-screen max-w-7xl bg-skin-default
+		@apply w-full max-w-7xl min-h-screen
 	}
 
 	footer {
-		@apply flex flex-col w-full bg-skin-accent
+		@apply w-full flex flex-col bg-skin-accent
 	}
 
 	.title-text {
-		@apply xl:text-h2 md:text-h4 sm:text-h6 font-semibold uppercase
+		@apply lg:text-h2 md:text-h4 sm:text-h6 font-semibold uppercase
 	}
 
 	.line-text {
-		@apply xl:text-h3 md:text-h5 sm:text-h7 font-normal 
+		@apply lg:text-h3 md:text-h5 sm:text-h7 font-normal 
 	}
 
 }
